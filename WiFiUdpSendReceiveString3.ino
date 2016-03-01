@@ -35,6 +35,9 @@ void setup() {
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   pinMode(9, OUTPUT);
+   pinMode(8, OUTPUT);
+    pinMode(5, OUTPUT);
+     pinMode(6, OUTPUT);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
@@ -80,6 +83,21 @@ void loop() {
   digitalWrite(9, HIGH);
   else
   digitalWrite(9,LOW);
+
+   if(packetBuffer[1]=='d')
+  digitalWrite(8, HIGH);
+  else
+  digitalWrite(8,LOW);
+
+   if(packetBuffer[2]=='l')
+  digitalWrite(6, HIGH);
+  else
+  digitalWrite(6,LOW);
+
+   if(packetBuffer[3]=='r')
+  digitalWrite(5, HIGH);
+  else
+  digitalWrite(5,LOW);
   
   if(packetBuffer[0]=='u')
   Serial.print("u");
@@ -111,6 +129,7 @@ void loop() {
     //Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
    // Udp.write(ReplyBuffer);
     Udp.endPacket();
+     
   
  }
 }

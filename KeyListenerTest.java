@@ -35,9 +35,9 @@ public class KeyListenerTest extends JPanel implements KeyListener, Runnable {
         socket = new DatagramSocket();
 
         while(true){
-            System.out.println(data[0]+"- data\n");
+            //System.out.println(data[0]+"- data\n");
          DatagramPacket packet =  new DatagramPacket(data,data.length,host,port);
-         Thread.sleep(5);
+         Thread.sleep(20);
             socket.send( packet ) ;
         }
            
@@ -82,10 +82,10 @@ public class KeyListenerTest extends JPanel implements KeyListener, Runnable {
         while(true) {
             try {
                 if(isUpPressed==true) {data[0]= (byte)u;System.out.println("u\n");}else data[0]='\0';
-                if(isDownPressed==true) {data[1]= (byte)d;System.out.println("d\n");} else data[1]= 0;
-                if(isLeftPressed==true) {data[2]= (byte)l;System.out.println("l\n");} else data[2]= 0;
-                if(isRightPressed==true){data[3]= (byte)r;System.out.println("r\n");} else data[3]= 0;
-                Thread.sleep(5);
+                if(isDownPressed==true) {data[1]= (byte)d;System.out.println("d\n");} else data[1]= '\0';
+                if(isLeftPressed==true) {data[2]= (byte)l;System.out.println("l\n");} else data[2]= '\0';
+                if(isRightPressed==true){data[3]= (byte)r;System.out.println("r\n");} else data[3]= '\0';
+                Thread.sleep(0);
        
           // Convert the arguments to ensure that they are valid
         //final  InetAddress host = InetAddress.getByName( args[0] ) ;
